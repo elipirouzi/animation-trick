@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>trick</title>
+</head>
+<style>
+    *,
+    *::before,
+    *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(105, 215, 198);
+        overflow: hidden;
+    }
+
+    .car {
+        width: 700px;
+        height: 100vh;
+        justify-content: center;
+        transform-style: preserve-3d;
+        animation: move 2s linear infinite alternate;
+    }
+
+    @keyframes move {
+        15% {
+            transform: translateY(-6px);
+        }
+        30% {
+            transform: translateY(8px);
+        }
+        45% {
+            transform: translateY(-6px);
+        }
+        60% {
+            transform: translateY(8px);
+        }
+        75% {
+            transform: translateY(-6px);
+        }
+        100% {
+            transform: translateY(8px);
+        }
+    }
+
+    .top {
+        width: 100%;
+        transform-style: preserve-3d;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        transform: rotate(1.11deg)translate(11px, 151px) translateZ(367px);
+    }
+
+    .panel {
+        width: 86px;
+        height: 29px;
+        position: relative;
+        transform: perspective(800px)rotate3d(2, 7, -.6, -60deg)translate(139px, 0px);
+        transform-style: preserve-3d;
+    }
+
+    .panel::before {
+        content: '';
+        display: inline-block;
+        width: 110%;
+        height: 46%;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        transform: rotateX(-90deg);
+        transform-origin: bottom;
+        background-color: rgb(203, 186, 145);
+    }
+
+    .panel>div {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform-style: preserve-3d;
+
+    }
+
+    .panel>div:nth-of-type(1) {
+        width: 100%;
+        height: 100%;
+        transform: translatez(5px);
+        background-color: rgb(205, 197, 182);
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform-style: preserve-3d;
+    }
+
+    .panel>div:nth-of-type(1)::before {
+        content: '';
+        width: 100%;
+        height: 10px;
+        display: inline-block;
+        top: 0;
+        left: 0;
+        position: absolute;
+        transform: rotateX(-90deg);
+        transform-origin: top;
+        background-color: rgb(247, 248, 243);
+    }
+
+    .panel>div:nth-of-type(1)::after {
+        content: '';
+        width: 100%;
+        height: 10px;
+        display: inline-block;
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        background-color: rgb(247, 248, 243);
+        transform: rotateX(90deg);
+        transform-origin: bottom;
+    }
+
+    .panel>div:nth-of-type(1)>h1 {
+        text-transform: uppercase;
+        color: rgb(88, 42, 66);
+        font-size: 19px;
+        font-weight: bold;
+        font-family: monospace;
+        letter-spacing: 5px;
+    }
+
+    .panel>div:nth-of-type(2) {
+        width: 100%;
+        height: 100%;
+        transform: translatez(-5px);
+        background-color: rgb(205, 197, 182);
+        position: absolute;
+    }
+
+    .panel>div:nth-of-type(2)::before {
+        content: '';
+        width: 10px;
+        height: 100%;
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: rotateY(-90deg);
+        transform-origin: left;
+        background-color: rgb(222, 220, 203);
+    }
+
+    .panel>div:nth-of-type(2)::after {
+        content: '';
+        width: 10px;
+        height: 100%;
+        display: inline-block;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        transform: rotateY(90deg);
+        transform-origin: right;
+        background-color: rgb(222, 220, 203);
+
+    }
+
+    .roof {
+        width: 215px;
+        height: 215px;
+        position: relative;
+        transform: perspective(800px)rotateX(66deg)rotateZ(42deg)rotateY(1deg) translate(-129px, -36px);
+        transform-style: preserve-3d;
+        z-index: 999;
+        /* overflow: hidden; */
+
+    }
+    .roof::before{
+        content: '';
+        position: absolute;
+        display: block;
+        width: 71%;
+        height: 106%;
+        top: 0;
+        left: 100%;
+        background-image: radial-gradient(#9dccbe, #95c8b9, #8dc4b4, #85c0ae, #7DBCA9 );
+        transform: rotateZ(185deg)rotateY(-54deg) translateZ(-154px) translate(0px, 56px);
+        z-index: -100;
+    }
+    .roof::after{
+        content: '';
+        position: absolute;
+        display: block;
+        width: 52%;
+        height: 113%;
+        top: 0;
+        right: 100%;
+        background-image: radial-gradient(#9dccbe, #95c8b9, #8dc4b4, #85c0ae, #7DBCA9 );
+        transform: rotateZ(266deg)rotateY(-82deg) translateZ(39px) translate(-103px, 120px);
+    }
+    .roof>div {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform-style: preserve-3d;
+    }
+
+    .roof>div:nth-of-type(1) {
+        transform: translateZ(5px);
+        background-color: rgb(254, 231, 167);
+    }
+
+    .roof>div:nth-of-type(1)::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 10px;
+        top: 0;
+        left: 0;
+        position: absolute;
+        background-color: rgb(191, 173, 128);
+        transform: rotateX(-90deg);
+        transform-origin: top;
+    }
+
+    .roof>div:nth-of-type(1)::after {
+        content: '';
+        display: block;
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 10px;
+        background-color: rgb(191, 173, 128);
+        transform: rotateX(90deg);
+        transform-origin: bottom;
+    }
+
+    .roof>div:nth-of-type(2) {
+        transform: translateZ(-5px);
+        background-color: rgb(254, 231, 167);
+    }
+
+    .roof>div:nth-of-type(2)::before {
+        content: '';
+        display: block;
+        width: 10px;
+        height: 100%;
+        top: 0;
+        right: 0;
+        position: absolute;
+        background-color: rgb(232, 210, 150);
+        transform: rotateY(90deg);
+        transform-origin: right;
+    }
+
+    .roof>div:nth-of-type(2)::after {
+        content: '';
+        display: block;
+        width: 10px;
+        height: 100%;
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        background-color: rgb(232, 210, 150);
+        transform: rotateY(-90deg);
+        transform-origin: left;
+    }
+
+    .win1 {
+        width: 6px;
+        height: 6px;
+        position: relative;
+        transform: perspective(800px)rotateX(91deg)rotateZ(-152deg) translate3d(352px, -71px, -124px);
+        transform-style: preserve-3d;
+    }
+
+    .win1>div {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform-style: preserve-3d;
+    }
+
+    .win1>div:nth-of-type(1) {
+        transform: translateZ(50px);
+        background-color: rgb(191, 173, 128);
+        transform-style: preserve-3d;
+    }
+
+    .win1>div:nth-of-type(1)::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100px;
+        background-color: rgb(191, 173, 128);
+        top: 0;
+        left: 0;
+        position: absolute;
+        transform: rotateX(-90deg);
+        transform-origin: top;
+    }
+
+    .win1>div:nth-of-type(1)::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100px;
+        background-color: rgb(191, 173, 128);
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        transform: rotateX(90deg);
+        transform-origin: bottom;
+    }
+
+    .win1>div:nth-of-type(2) {
+        transform: translateZ(-50px);
+        background-color: rgb(161, 138, 81);
+        transform-style: preserve-3d;
+    }
+
+    .win1>div:nth-of-type(2)::before {
+        content: '';
+        display: block;
+        width: 100px;
+        height: 100%;
+        background-color: rgb(161, 138, 81);
+        top: 0;
+        left: 0;
+        position: absolute;
+        transform: rotateY(-90deg);
+        transform-origin: left;
+    }
+
+    .win1>div:nth-of-type(2)::after {
+        content: '';
+        display: block;
+        width: 100px;
+        height: 100%;
+        background-color: rgb(161, 138, 81);
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        transform: rotateY(90deg);
+        transform-origin: right;
+    }
+
+    .win2 {
+        width: 6px;
+        height: 6px;
+        position: relative;
+        transform: perspective(800px)rotateX(91deg)rotateZ(-152deg) translate3d(277px, -77px, -144px);
+        transform-style: preserve-3d;
+    }
+
+    .win2>div {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform-style: preserve-3d;
+    }
+
+    .win2>div:nth-of-type(1) {
+        transform: translateZ(50px);
+        background-color: rgb(191, 173, 128);
+        transform-style: preserve-3d;
+    }
+
+    .win2>div:nth-of-type(1)::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100px;
+        background-color: rgb(191, 173, 128);
+        top: 0;
+        left: 0;
+        position: absolute;
+        transform: rotateX(-90deg);
+        transform-origin: top;
+    }
+
+    .win2>div:nth-of-type(1)::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100px;
+        background-color: rgb(191, 173, 128);
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        transform: rotateX(90deg);
+        transform-origin: bottom;
+    }
+
+    .win2>div:nth-of-type(2) {
+        transform: translateZ(-50px);
+        background-color: rgb(161, 138, 81);
+        transform-style: preserve-3d;
+    }
+
+    .win2>div:nth-of-type(2)::before {
+        content: '';
+        display: block;
+        width: 100px;
+        height: 100%;
+        background-color: rgb(161, 138, 81);
+        top: 0;
+        left: 0;
+        position: absolute;
+        transform: rotateY(-90deg);
+        transform-origin: left;
+    }
+
+    .win2>div:nth-of-type(2)::after {
+        content: '';
+        display: block;
+        width: 100px;
+        height: 100%;
+        background-color: rgb(161, 138, 81);
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        transform: rotateY(90deg);
+        transform-origin: right;
+    }
+
+    .win3 {
+        width: 6px;
+        height: 6px;
+        position: relative;
+        transform: perspective(800px)rotateX(91deg)rotateY(-15deg)rotateZ(-152deg) translate3d(212px, -77px, -126px);
+        transform-style: preserve-3d;
+    }
+
+    .win3>div {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform-style: preserve-3d;
+    }
+
+    .win3>div:nth-of-type(1) {
+        transform: translateZ(54px);
+        background-color: rgb(191, 173, 128);
+        transform-style: preserve-3d;
+    }
+
+    .win3>div:nth-of-type(1)::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 108px;
+        background-color: rgb(191, 173, 128);
+        top: 0;
+        left: 0;
+        position: absolute;
+        transform: rotateX(-90deg);
+        transform-origin: top;
+    }
+
+    .win3>div:nth-of-type(1)::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 108px;
+        background-color: rgb(191, 173, 128);
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        transform: rotateX(90deg);
+        transform-origin: bottom;
+    }
+
+    .win3>div:nth-of-type(2) {
+        transform: translateZ(-54px);
+        background-color: rgb(232, 210, 150);
+        transform-style: preserve-3d;
+    }
+
+    .win3>div:nth-of-type(2)::before {
+        content: '';
+        display: block;
+        width: 108px;
+        height: 100%;
+        background-color: rgb(232, 210, 150);
+        top: 0;
+        left: 0;
+        position: absolute;
+        transform: rotateY(-90deg);
+        transform-origin: left;
+    }
+
+    .win3>div:nth-of-type(2)::after {
+        content: '';
+        display: block;
+        width: 108px;
+        height: 100%;
+        background-color: rgb(161, 138, 81);
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        transform: rotateY(90deg);
+        transform-origin: right;
+    }
+
+    .win4 {
+        width: 6px;
+        height: 6px;
+        position: relative;
+        transform: perspective(800px)rotateX(-616deg)rotateY(-380deg)rotateZ(-159deg) translate3d(49px, -94px, -98px);
+        transform-style: preserve-3d;
+    }
+
+    .win4>div {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform-style: preserve-3d;
+    }
+
+    .win4>div:nth-of-type(1) {
+        transform: translateZ(43px);
+        background-color: rgb(232, 210, 150);
+        transform-style: preserve-3d;
+    }
+
+    .win4>div:nth-of-type(1)::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 86px;
+        background-color: rgb(161, 138, 81);
+        top: 0;
+        left: 0;
+        position: absolute;
+        transform: rotateX(-90deg);
+        transform-origin: top;
+    }
+
+    .win4>div:nth-of-type(1)::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 86px;
+        background-color: rgb(191, 173, 128);
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        transform: rotateX(90deg);
+        transform-origin: bottom;
+    }
+
+    .win4>div:nth-of-type(2) {
+        transform: translateZ(-43px);
+        background-color: rgb(232, 210, 150);
+        transform-style: preserve-3d;
+    }
+
+    .win4>div:nth-of-type(2)::before {
+        content: '';
+        display: block;
+        width: 86px;
+        height: 100%;
+        background-color: rgb(232, 210, 150);
+        top: 0;
+        left: 0;
+        position: absolute;
+        transform: rotateY(-90deg);
+        transform-origin: left;
+    }
+
+    .win4>div:nth-of-type(2)::after {
+        content: '';
+        display: block;
+        width: 86px;
+        height: 100%;
+        background-color: rgb(161, 138, 81);
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        transform: rotateY(90deg);
+        transform-origin: right;
+    }
+
+    .win5 {
+        width: 6px;
+        height: 6px;
+        position: relative;
+        transform: perspective(800px)rotateX(95deg)rotateY(-66deg)rotateZ(-151deg) translate3d(325px, -45px, 233px);
+        transform-style: preserve-3d;
+    }
+
+    .win5>div {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform-style: preserve-3d;
+    }
+
+    .win5>div:nth-of-type(1) {
+        transform: translateZ(42px);
+        background-color: rgb(191, 173, 128);
+        transform-style: preserve-3d;
+    }
+
+    .win5>div:nth-of-type(1)::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 84px;
+        background-color: rgb(191, 173, 128);
+        top: 0;
+        left: 0;
+        position: absolute;
+        transform: rotateX(-90deg);
+        transform-origin: top;
+    }
+
+    .win5>div:nth-of-type(1)::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 84px;
+        background-color: rgb(191, 173, 128);
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        transform: rotateX(90deg);
+        transform-origin: bottom;
+    }
+
+    .win5>div:nth-of-type(2) {
+        transform: translateZ(-42px);
+        background-color: rgb(161, 138, 81);
+        transform-style: preserve-3d;
+    }
+
+    .win5>div:nth-of-type(2)::before {
+        content: '';
+        display: block;
+        width: 84px;
+        height: 100%;
+        background-color: rgb(161, 138, 81);
+        top: 0;
+        left: 0;
+        position: absolute;
+        transform: rotateY(-90deg);
+        transform-origin: left;
+    }
+
+    .win5>div:nth-of-type(2)::after {
+        content: '';
+        display: block;
+        width: 84px;
+        height: 100%;
+        background-color: rgb(161, 138, 81);
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        transform: rotateY(90deg);
+        transform-origin: right;
+    }
+
+    .win6 {
+        width: 6px;
+        height: 6px;
+        position: relative;
+        transform: perspective(800px)rotateX(96deg)rotateY(-65.5deg)rotateZ(-151deg) translate3d(306px, -68px, 154px);
+        transform-style: preserve-3d;
+    }
+
+    .win6>div {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform-style: preserve-3d;
+    }
+
+    .win6>div:nth-of-type(1) {
+        transform: translateZ(72px);
+        background-color: rgb(191, 173, 128);
+        transform-style: preserve-3d;
+    }
+
+    .win6>div:nth-of-type(1)::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 144px;
+        background-color: rgb(191, 173, 128);
+        top: 0;
+        left: 0;
+        position: absolute;
+        transform: rotateX(-90deg);
+        transform-origin: top;
+    }
+
+    .win6>div:nth-of-type(1)::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 144px;
+        background-color: rgb(191, 173, 128);
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        transform: rotateX(90deg);
+        transform-origin: bottom;
+    }
+
+    .win6>div:nth-of-type(2) {
+        transform: translateZ(-72px);
+        background-color: rgb(161, 138, 81);
+        transform-style: preserve-3d;
+    }
+
+    .win6>div:nth-of-type(2)::before {
+        content: '';
+        display: block;
+        width: 144px;
+        height: 100%;
+        background-color: rgb(161, 138, 81);
+        top: 0;
+        left: 0;
+        position: absolute;
+        transform: rotateY(-90deg);
+        transform-origin: left;
+    }
+
+    .win6>div:nth-of-type(2)::after {
+        content: '';
+        display: block;
+        width: 144px;
+        height: 100%;
+        background-color: rgb(161, 138, 81);
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        transform: rotateY(90deg);
+        transform-origin: right;
+    }
+
+    .win7 {
+        width: 6px;
+        height: 6px;
+        position: relative;
+        transform: perspective(800px)rotateX(259deg)rotateY(-62deg)rotateZ(-343deg) translate3d(120px, -38px, 207px);
+        transform-style: preserve-3d;
+    }
+
+    .win7>div {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform-style: preserve-3d;
+    }
+
+    .win7>div:nth-of-type(1) {
+        transform: translateZ(85px);
+        background-color: rgb(254, 229, 159);
+        transform-style: preserve-3d;
+    }
+
+    .win7>div:nth-of-type(1)::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 170px;
+        background-color: rgb(254, 229, 159);
+        top: 0;
+        left: 0;
+        position: absolute;
+        transform: rotateX(-90deg);
+        transform-origin: top;
+    }
+
+    .win7>div:nth-of-type(1)::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 170px;
+        background-color: rgb(254, 229, 159);
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        transform: rotateX(90deg);
+        transform-origin: bottom;
+    }
+
+    .win7>div:nth-of-type(2) {
+        transform: translateZ(-85px);
+        background-color: rgb(254, 229, 159);
+        transform-style: preserve-3d;
+    }
+
+    .win7>div:nth-of-type(2)::before {
+        content: '';
+        display: block;
+        width: 170px;
+        height: 100%;
+        background-color: rgb(161, 138, 81);
+        top: 0;
+        left: 0;
+        position: absolute;
+        transform: rotateY(-90deg);
+        transform-origin: left;
+    }
+
+    .win7>div:nth-of-type(2)::after {
+        content: '';
+        display: block;
+        width: 170px;
+        height: 100%;
+        background-color: rgb(161, 138, 81);
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        transform: rotateY(90deg);
+        transform-origin: right;
+    }
+
+    .bottom {
+        width: 100%;
+        display: flex;
+        transform-style: preserve-3d;
+        position: relative;
+        transform: translate(216px, 10px);
+    }
+
+    .body1 {
+        width: 500px;
+        height: 200px;
+        position: relative;
+        transform-style: preserve-3d;
+        transform: perspective(1100px)rotateX(62deg)rotateZ(46deg)rotateY(-3deg) translate(55px, 77px)translateZ(37px);
+    }
+
+    .body1>div {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform-style: preserve-3d;
+    }
+
+    .body1>div:nth-of-type(1) {
+        transform: translateZ(15px);
+        background-color: rgb(235, 213, 152);
+    }
+
+    .body1>div:nth-of-type(1)::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 30px;
+        top: 0;
+        left: 0;
+        position: absolute;
+        background-color: rgb(183, 163, 113);
+        transform: rotateX(-90deg);
+        transform-origin: top;
+    }
+
+    .body1>div:nth-of-type(1)::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 30px;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        background-color: rgb(183, 163, 113);
+        transform: rotateX(90deg);
+        transform-origin: bottom;
+    }
+
+    .body1>div:nth-of-type(2) {
+        transform: translateZ(-15px);
+        background-color: rgb(235, 213, 152);
+    }
+
+    .body1>div:nth-of-type(2)::before {
+        content: '';
+        display: block;
+        width: 30px;
+        height: 100%;
+        top: 0;
+        left: 0;
+        position: absolute;
+        background-color: rgb(229, 205, 139);
+        transform: rotateY(-90deg);
+        transform-origin: left;
+    }
+
+    .body1>div:nth-of-type(2)::after {
+        content: '';
+        display: block;
+        width: 30px;
+        height: 100%;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        background-color: rgb(229, 205, 139);
+        transform: rotateY(90deg);
+        transform-origin: right;
+    }
+
+    .body2 {
+        width: 540px;
+        height: 210px;
+        position: relative;
+        transform-style: preserve-3d;
+        transform: perspective(1100px)rotateX(66deg)rotateZ(34.9deg)rotateY(5deg) translate(-228px, 203px)translateZ(-33px);
+    }
+
+    .body2>div {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform-style: preserve-3d;
+    }
+
+    .body2>div:nth-of-type(1) {
+        transform: translateZ(8px);
+        background-color: rgb(247, 248, 243);
+    }
+
+    .body2>div:nth-of-type(1)::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 16px;
+        top: 0;
+        left: 0;
+        position: absolute;
+        background-color: rgb(205, 197, 182);
+        transform: rotateX(-90deg);
+        transform-origin: top;
+    }
+
+    .body2>div:nth-of-type(1)::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 16px;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        background-color: rgb(205, 197, 182);
+        transform: rotateX(90deg);
+        transform-origin: bottom;
+    }
+
+    .body2>div:nth-of-type(2) {
+        transform: translateZ(-8px);
+        background-color: rgb(247, 248, 243);
+    }
+
+    .body2>div:nth-of-type(2)::before {
+        content: '';
+        display: block;
+        width: 16px;
+        height: 100%;
+        top: 0;
+        left: 0;
+        position: absolute;
+        background-color: rgb(247, 248, 243);
+        transform: rotateY(-90deg);
+        transform-origin: left;
+    }
+
+    .body2>div:nth-of-type(2)::after {
+        content: '';
+        display: block;
+        width: 16px;
+        height: 100%;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        background-color: rgb(247, 248, 243);
+        transform: rotateY(90deg);
+        transform-origin: right;
+    }
+
+    .light1 {
+        width: 40px;
+        height: 20px;
+        position: relative;
+        transform-style: preserve-3d;
+        transform: rotateX(-27deg)rotateY(47deg)rotateZ(-4deg)translate3d(-580px, -159px, 112px);
+    }
+
+    .light1>div {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform-style: preserve-3d;
+    }
+
+    .light1>div:nth-of-type(1) {
+        transform: translateZ(3px);
+        background-color: rgb(221, 188, 100);
+    }
+
+    .light1>div:nth-of-type(1)::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 6px;
+        top: 0;
+        left: 0;
+        position: absolute;
+        background-color: rgb(253, 214, 106);
+        transform: rotateX(-90deg);
+        transform-origin: top;
+    }
+
+    .light1>div:nth-of-type(1)::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 6px;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        background-color: rgb(253, 214, 106);
+        transform: rotateX(90deg);
+        transform-origin: bottom;
+    }
+
+    .light1>div:nth-of-type(2) {
+        transform: translateZ(-3px);
+        background-color: rgb(221, 188, 100);
+    }
+
+    .light1>div:nth-of-type(2)::before {
+        content: '';
+        display: block;
+        width: 6px;
+        height: 100%;
+        top: 0;
+        left: 0;
+        position: absolute;
+        background-color: rgb(183, 160, 103);
+        transform: rotateY(-90deg);
+        transform-origin: left;
+    }
+
+    .light1>div:nth-of-type(2)::after {
+        content: '';
+        display: block;
+        width: 6px;
+        height: 100%;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        background-color: rgb(183, 160, 103);
+        transform: rotateY(90deg);
+        transform-origin: right;
+    }
+
+    .light2 {
+        width: 40px;
+        height: 20px;
+        position: relative;
+        transform-style: preserve-3d;
+        transform: rotateX(-26deg)rotateY(45deg)rotateZ(-4deg)translate3d(-741px, -156px, 125px);
+    }
+
+    .light2>div {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform-style: preserve-3d;
+    }
+
+    .light2>div:nth-of-type(1) {
+        transform: translateZ(3px);
+        background-color: rgb(221, 188, 100);
+    }
+
+    .light2>div:nth-of-type(1)::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 6px;
+        top: 0;
+        left: 0;
+        position: absolute;
+        background-color: rgb(253, 214, 106);
+        transform: rotateX(-90deg);
+        transform-origin: top;
+    }
+
+    .light2>div:nth-of-type(1)::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 6px;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        background-color: rgb(253, 214, 106);
+        transform: rotateX(90deg);
+        transform-origin: bottom;
+    }
+
+    .light2>div:nth-of-type(2) {
+        transform: translateZ(-3px);
+        background-color: rgb(221, 188, 100);
+    }
+
+    .light2>div:nth-of-type(2)::before {
+        content: '';
+        display: block;
+        width: 6px;
+        height: 100%;
+        top: 0;
+        left: 0;
+        position: absolute;
+        background-color: rgb(183, 160, 103);
+        transform: rotateY(-90deg);
+        transform-origin: left;
+    }
+
+    .light2>div:nth-of-type(2)::after {
+        content: '';
+        display: block;
+        width: 6px;
+        height: 100%;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        background-color: rgb(183, 160, 103);
+        transform: rotateY(90deg);
+        transform-origin: right;
+    }
+
+    .light3 {
+        width: 100px;
+        height: 17px;
+        position: relative;
+        transform-style: preserve-3d;
+        transform: rotateX(-26deg)rotateY(45deg)rotateZ(-4deg)translate3d(-731px, -180px, 128px);
+    }
+
+    .light3>div {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform-style: preserve-3d;
+    }
+
+    .light3>div:nth-of-type(1) {
+        transform: translateZ(3px);
+        background-color: rgb(222, 220, 203);
+    }
+
+    .light3>div:nth-of-type(1)::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 6px;
+        top: 0;
+        left: 0;
+        position: absolute;
+        background-color: rgb(247, 248, 243);
+        transform: rotateX(-90deg);
+        transform-origin: top;
+    }
+
+    .light3>div:nth-of-type(1)::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 6px;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        background-color: rgb(247, 248, 243);
+        transform: rotateX(90deg);
+        transform-origin: bottom;
+    }
+
+    .light3>div:nth-of-type(2) {
+        transform: translateZ(-3px);
+        background-color: rgb(222, 220, 203);
+    }
+
+    .light3>div:nth-of-type(2)::before {
+        content: '';
+        display: block;
+        width: 6px;
+        height: 100%;
+        top: 0;
+        left: 0;
+        position: absolute;
+        background-color: rgb(205, 197, 182);
+        transform: rotateY(-90deg);
+        transform-origin: left;
+    }
+
+    .light3>div:nth-of-type(2)::after {
+        content: '';
+        display: block;
+        width: 6px;
+        height: 100%;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        background-color: rgb(205, 197, 182);
+        transform: rotateY(90deg);
+        transform-origin: right;
+    }
+
+    .wheel {
+        width: 100%;
+        transform-style: preserve-3d;
+        position: relative;
+        transform: translate(226px, 461px);
+    }
+
+    .wheel1 {
+        width: 70px;
+        height: 70px;
+        background-color: rgb(88, 42, 66);
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform-style: preserve-3d;
+        border-radius: 50%;
+        transform: rotateX(-18deg)rotateY(58deg)rotateZ(1deg)translate3d(-731px, -792px, 391px)translateZ(-23px)rotate3d(2, 1, 0, 201deg);
+        box-shadow: 2px 2px 2px rgb(88, 42, 66),
+            4px 4px 2px rgb(88, 42, 66),
+            6px 6px 2px rgb(88, 42, 66),
+            8px 8px 2px rgb(88, 42, 66),
+            10px 10px 2px rgb(88, 42, 66),
+            12px 12px 2px rgb(88, 42, 66),
+            14px 14px 2px rgb(88, 42, 66),
+            16px 16px 2px rgb(88, 42, 66),
+            18px 18px 2px rgb(88, 42, 66),
+            20px 20px 2px rgb(88, 42, 66);
+    }
+
+    .wheel1>div {
+        width: 45px;
+        height: 45px;
+        position: absolute;
+        border: 3px solid rgb(195, 185, 167);
+        border-radius: 40%;
+        transform: translate(19px, 20px);
+        animation: wheel0 2s linear infinite;
+    }
+
+    @keyframes wheel0 {
+        from {
+            transform: translate(19px, 20px) rotate(360deg);
+        }
+
+        to {
+            transform: translate(19px, 20px) rotate(0deg);
+        }
+    }
+
+    .wheel1>div>div {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        background-color: rgb(195, 185, 167);
+        border-radius: 40%;
+        transform: translate(5px, 4px);
+        animation: wheel1 2s linear infinite;
+    }
+
+    @keyframes wheel1 {
+        from {
+            transform: translate(5px, 4px) rotate(360deg);
+        }
+
+        to {
+            transform: translate(5px, 4px) rotate(0deg);
+        }
+    }
+
+    .wheel2 {
+        width: 70px;
+        height: 70px;
+        background-color: rgb(88, 42, 66);
+        position: absolute;
+        transform-style: preserve-3d;
+        border-radius: 50%;
+        transform: rotateX(-18deg)rotateY(58deg)rotateZ(1deg)translate3d(-731px, -753px, 549px)translateZ(-49px)rotate3d(2, 1, 0, 201deg);
+        box-shadow: 2px 2px 2px rgb(88, 42, 66),
+            4px 4px 2px rgb(88, 42, 66),
+            6px 6px 2px rgb(88, 42, 66),
+            8px 8px 2px rgb(88, 42, 66),
+            10px 10px 2px rgb(88, 42, 66),
+            12px 12px 2px rgb(88, 42, 66),
+            14px 14px 2px rgb(88, 42, 66),
+            16px 16px 2px rgb(88, 42, 66),
+            18px 18px 2px rgb(88, 42, 66),
+            20px 20px 2px rgb(88, 42, 66);
+    }
+
+    .wheel2>div {
+        width: 45px;
+        height: 45px;
+        position: absolute;
+        border: 3px solid rgb(195, 185, 167);
+        border-radius: 40%;
+        transform: translate(19px, 20px);
+        animation: wheel2 2s linear infinite;
+    }
+
+    @keyframes wheel2 {
+        from {
+            transform: translate(19px, 20px) rotate(360deg);
+        }
+
+        to {
+            transform: translate(19px, 20px) rotate(0deg);
+        }
+    }
+
+    .wheel2>div>div {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        background-color: rgb(195, 185, 167);
+        border-radius: 40%;
+        transform: translate(5px, 4px);
+        animation: wheel3 2s linear infinite;
+    }
+
+    @keyframes wheel3 {
+        from {
+            transform: translate(5px, 4px) rotate(360deg);
+        }
+
+        to {
+            transform: translate(5px, 4px) rotate(0deg);
+        }
+    }
+</style>
+
+<body>
+    <div class="car">
+        <div class="top">
+            <div class="panel">
+                <div>
+                    <h1>Taco</h1>
+                </div>
+                <div></div>
+            </div>
+            <div class="roof">
+                <div></div>
+                <div></div>
+            </div>
+            <div class="win1">
+                <div></div>
+                <div></div>
+            </div>
+            <div class="win2">
+                <div></div>
+                <div></div>
+            </div>
+            <div class="win3">
+                <div></div>
+                <div></div>
+            </div>
+            <div class="win4">
+                <div></div>
+                <div></div>
+            </div>
+            <div class="win5">
+                <div></div>
+                <div></div>
+            </div>
+            <div class="win6">
+                <div></div>
+                <div></div>
+            </div>
+            <div class="win7">
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="body1">
+                <div></div>
+                <div></div>
+            </div>
+            <div class="body2">
+                <div></div>
+                <div></div>
+            </div>
+            <div class="light1">
+                <div></div>
+                <div></div>
+            </div>
+            <div class="light2">
+                <div></div>
+                <div></div>
+            </div>
+            <div class="light3">
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div class="wheel">
+            <div class="wheel1">
+                <div>
+                    <div></div>
+                </div>
+            </div>
+            <div class="wheel2">
+                <div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
